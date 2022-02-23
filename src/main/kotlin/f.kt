@@ -1,4 +1,6 @@
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import java.beans.XMLDecoder
 import java.beans.XMLEncoder
 import java.io.*
@@ -21,7 +23,7 @@ fun main(){
         println("Свободное пространство:${disk.freeSpace}")
         println("Метка:$disk")
     }
-    /*val file=File("C:\\Для лабы","laba1_1.txt")
+    val file=File("C:\\Для лабы","laba1_1.txt")
     file.createNewFile()
     println("Введите строку")
     val str=readLine().toString()
@@ -37,12 +39,14 @@ fun main(){
     val second= readLine().toString()
     println("Введите свой возраст")
     val age=readLine().toString().toInt()
-    val json = Json.encodeToString(JS(sur,name,second,age))
+    val json = Json.encodeToString<JS> (JS(sur,name,second,age))
     val fileJs=File("C:\\Для лабы","laba1_2.txt")
     fileJs.writeText(json)
     println(fileJs.readText())
-    fileJs.delete()*/
+    fileJs.delete()
+
     val file3=File("C:\\untitled5","laba1_4.xml")
+    println("Введите строку")
     val xml= readLine().toString()
     val e = XMLEncoder(
         BufferedOutputStream(
